@@ -3,17 +3,24 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-        <h2>id:${task.id}の仕事詳細ページ</h2>
+        <c:choose>
+            <c:when test="${task !=null}">
+                <h2>id:${task.id}の仕事詳細ページ</h2>
 
-        <p>仕事内容：<c:out value="${task.content}"/></p>
-        <p>作成日時：<fmt:formatDate value="${task.create_time}" pattern="yy
-        yy-MM-dd HH:mm:ss"/></p>
-        <p>更新日時：<fmt:formatDate value="${task.update_time}" pattern="yy
-        yy-MM-dd HH:mm:ss"/></p>
+                <p>仕事内容：<c:out value="${task.content}"/></p>
+                <p>作成日時：<fmt:formatDate value="${task.create_time}" pattern="yy
+                yy-MM-dd HH:mm:ss"/></p>
+                <p>更新日時：<fmt:formatDate value="${task.update_time}" pattern="yy
+                yy-MM-dd HH:mm:ss"/></p>
 
-        <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
+                <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
 
-        <p><a href="${pageContext.request.contextPath}/edit?id=${task.id }">
-        この仕事内容を編集する</a></p>
+                <p><a href="${pageContext.request.contextPath}/edit?id=${task.id }">
+                この仕事内容を編集する</a></p>
+            </c:when>
+            <c:otherwise>
+              <h2>お探しのデータは見つかりませんでした。</h2>
+            </c:otherwise>
+        </c:choose>
     </c:param>
 </c:import>
