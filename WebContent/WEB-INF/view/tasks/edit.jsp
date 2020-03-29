@@ -4,7 +4,7 @@
     <c:param name="content">
         <h2>id:${task.id}の仕事内容編集ページ</h2>
 
-        <form method="POST" action="${pageCOntext.request.contextPath}/update">
+        <form method="POST" action="${pageContext.request.contextPath}/update">
             <c:import url="_form.jsp"/>
         </form>
         <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>

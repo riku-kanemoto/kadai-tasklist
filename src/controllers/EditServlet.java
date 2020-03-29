@@ -43,7 +43,7 @@ public class EditServlet extends HttpServlet {
 
         request.getSession().setAttribute("task_id",t.getId());
 
-        RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/vuew/tasks/edit.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("WEB-INF/view/tasks/edit.jsp");
         rd.forward(request, response);
 
     }
